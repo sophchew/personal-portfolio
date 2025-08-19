@@ -1,16 +1,407 @@
 ---
-
+// src/pages/index.astro
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Sophie Chew</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sophie Chew's Personal Portfolio</title>
+		<meta
+			name="description"
+			content="MIT freshman planning on studying Course 6-5 (EE & CS). Passionate about software engineering, hardware design, and innovative technology solutions."
+		/>
+		
 	</head>
 	<body>
-		<h1>Sophie Chew's Portfolio</h1>
+		<Navigation />
+
+		<!-- Hero Section -->
+		<main>
+			<section class="hero">
+				<div class="hero-content">
+					<div class="hero-text">
+						<h1 class="hero-title">
+							Hi, I'm <span class="highlight">Sophie Chew</span>
+						</h1>
+						<h2 class="hero-subtitle">
+							MIT Freshman | Potential Course 6-5 (EE & CS)
+						</h2>
+						<p class="hero-description">
+							Passionate about increasing the accessibility of
+							technology through the intersection of hardware and
+							software. Currently exploring full-stack
+							development, iOS development, AI/ML, cybersecurity,
+							and data science while building a foundation in
+							electrical engineering and computer science at MIT.
+						</p>
+						<div class="hero-buttons">
+							<a href="/projects" class="btn btn-primary"
+								>View Projects</a
+							>
+							<a href="/contact" class="btn btn-secondary"
+								>Get In Touch</a
+							>
+						</div>
+					</div>
+					<div class="hero-image">
+						<div class="placeholder-avatar">
+							<img
+								src="/public/profilepicture.jpg"
+								alt="Sophie Chew"
+								style="width: 100%; height: 120%; object-fit: cover"
+							/>
+							
+						
+					</div>
+				</div>
+			</section>
+
+			<!-- Skills Preview -->
+			<section class="skills-preview">
+				<div class="container">
+					<h3>Current Focus Areas</h3>
+					<div class="skills-grid">
+						<div class="skill-card">
+							<div class="skill-icon">💻</div>
+							<h4>Software Development</h4>
+							<p>Python, Java, Swift, Next.js/React.js</p>
+						</div>
+						<div class="skill-card">
+							<div class="skill-icon">🤖</div>
+							<h4>Robotics</h4>
+							<p>
+								FIRST Tech Challenge High School Participant.
+								Motion planning, odometry, AprilTag detection,
+								image recognition
+							</p>
+						</div>
+						<!-- <div class="skill-card">
+              <div class="skill-icon">🔧</div>
+              <h4>Hardware Design</h4>
+              <p>Embedded systems, PCB design, microcontrollers</p>
+            </div> -->
+					</div>
+				</div>
+			</section>
+
+			<!-- Recent Projects Preview -->
+			<section class="projects-preview">
+				<div class="container">
+					<h3>Featured Projects</h3>
+					<div class="projects-grid">
+						<div class="project-card">
+							<div class="project-image">
+								<div class="placeholder-project"></div>
+							</div>
+							<div class="project-content">
+								<h4>LED Matrix Display</h4>
+								<p>
+									Arduino-based programmable LED display with
+									custom animations and text scrolling
+									capabilities.
+								</p>
+								<div class="project-tech">
+									<span class="tech-tag">Arduino</span>
+									<span class="tech-tag">C++</span>
+									<span class="tech-tag">Electronics</span>
+								</div>
+							</div>
+						</div>
+						<div class="project-card">
+							<div class="project-image">
+								<div class="placeholder-project"></div>
+							</div>
+							<div class="project-content">
+								<h4>Study Group Finder</h4>
+								<p>
+									Web application to help MIT students find
+									and organize study groups for their classes.
+								</p>
+								<div class="project-tech">
+									<span class="tech-tag">React</span>
+									<span class="tech-tag">Node.js</span>
+									<span class="tech-tag">MongoDB</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="projects-cta">
+						<a href="/projects" class="btn btn-outline"
+							>View All Projects</a
+						>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+
+		<style>
+			/* Hero Section */
+			.hero {
+				padding: 8rem 2rem 4rem;
+				background: #b56576;
+				color: white;
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+			}
+
+			.hero-content {
+				max-width: 1200px;
+				margin: 0 auto;
+				display: grid;
+				grid-template-columns: 2fr 1fr;
+				gap: 4rem;
+				align-items: center;
+			}
+
+			.hero-title {
+				font-size: 3.5rem;
+				font-weight: bold;
+				margin-bottom: 1rem;
+				line-height: 1.2;
+			}
+
+			.highlight {
+				color: #355070;
+			}
+
+			.hero-subtitle {
+				font-size: 1.5rem;
+				font-weight: 300;
+				margin-bottom: 1.5rem;
+				opacity: 0.9;
+			}
+
+			.hero-description {
+				font-size: 1.2rem;
+				line-height: 1.7;
+				margin-bottom: 2.5rem;
+				opacity: 0.9;
+			}
+
+			.hero-buttons {
+				display: flex;
+				gap: 1rem;
+				flex-wrap: wrap;
+			}
+
+			.btn {
+				padding: 0.75rem 2rem;
+				border-radius: 50px;
+				text-decoration: none;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				display: inline-block;
+			}
+
+			.btn-primary {
+				background: white;
+				color: #355070;
+			}
+
+			.btn-primary:hover {
+				background: #f5f5f5;
+				color: #355070;
+				transform: translateY(-2px);
+			}
+
+			.btn-secondary {
+				background: transparent;
+				color: white;
+				border: 2px solid white;
+			}
+
+			.btn-secondary:hover {
+				background: white;
+				color: #355070;
+				border-color: white;
+				transform: translateY(-2px);
+			}
+
+			.hero-image {
+				display: flex;
+				justify-content: center;
+			}
+
+			.placeholder-avatar {
+				width: 300px ;
+				height: 300px ;
+				border-radius: 50%;
+				overflow: hidden;
+				box-shadow: 0 20px 100px rgba(0, 0, 0, 0.1);
+			}
+
+			/* Skills Preview */
+			.skills-preview {
+				padding: 5rem 0;
+				background: #f8f9fa;
+			}
+
+			.skills-preview h3 {
+				text-align: center;
+				font-size: 2.5rem;
+				margin-bottom: 3rem;
+				color: #355070;
+			}
+
+			.skills-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 2rem;
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			.skill-card {
+				background: white;
+				padding: 2rem;
+				border-radius: 10px;
+				border-top: 4px solid #355070;
+				text-align: center;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				transition:
+					transform 0.3s ease,
+					box-shadow 0.3s ease;
+			}
+
+			.skill-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 25px rgba(181, 101, 118, 0.15);
+			}
+
+			.skill-icon {
+				font-size: 3rem;
+				margin-bottom: 1rem;
+			}
+
+			.skill-card h4 {
+				font-size: 1.3rem;
+				margin-bottom: 1rem;
+				color: #355070;
+			}
+
+			.skill-card p {
+				color: #666;
+				line-height: 1.6;
+			}
+
+			/* Projects Preview */
+			.projects-preview {
+				padding: 5rem 0;
+				background: white;
+			}
+
+			.projects-preview h3 {
+				text-align: center;
+				font-size: 2.5rem;
+				margin-bottom: 3rem;
+				color: #355070;
+			}
+
+			.projects-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+				gap: 2rem;
+				margin-bottom: 3rem;
+			}
+
+			.project-card {
+				background: white;
+				border-radius: 10px;
+				overflow: hidden;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				transition:
+					transform 0.3s ease,
+					box-shadow 0.3s ease;
+			}
+
+			.project-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 25px rgba(181, 101, 118, 0.15);
+			}
+
+			.project-image {
+				height: 200px;
+				background: #f0f0f0;
+			}
+
+			.placeholder-project {
+				width: 100%;
+				height: 100%;
+				background: #b56576;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-size: 1.2rem;
+			}
+
+			.project-content {
+				padding: 1.5rem;
+			}
+
+			.project-content h4 {
+				font-size: 1.3rem;
+				margin-bottom: 0.5rem;
+				color: #355070;
+			}
+
+			.project-content p {
+				color: #666;
+				margin-bottom: 1rem;
+				line-height: 1.6;
+			}
+
+			.project-tech {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+			}
+
+			.tech-tag {
+				background: #f8f9fa;
+				color: #355070;
+				padding: 0.25rem 0.75rem;
+				border-radius: 20px;
+				font-size: 0.85rem;
+				border: 1px solid #e0e0e0;
+			}
+
+			.projects-cta {
+				text-align: center;
+			}
+
+			.btn-outline {
+				background: transparent;
+				color: #b56576;
+				border: 2px solid #b56576;
+			}
+
+			.btn-outline:hover {
+				background: #b56576;
+				color: white;
+				transform: translateY(-2px);
+			}
+		</style>
+
+		<script>
+			// Mobile navigation toggle
+			document.addEventListener("DOMContentLoaded", function () {
+				const navToggle = document.querySelector(".nav-toggle");
+				const navMenu = document.querySelector(".nav-menu");
+
+				if (navToggle && navMenu) {
+					navToggle.addEventListener("click", function () {
+						navMenu.classList.toggle("active");
+					});
+				}
+			});
+		</script>
 	</body>
 </html>
